@@ -17,7 +17,6 @@ public class BinarySearchApp {
       if(number!=el) counter++;
       else break;
     }
-    System.out.println(counter);
     return counter;
 
   }
@@ -31,18 +30,13 @@ public class BinarySearchApp {
     int max = origin.length-1;
 
     while (min<=max) {
-      int mid = min + (max-min)/2;
-      if (origin[mid]==number) {
-        counter++;
-        break;
-      }
-      if (origin[mid]<number) {
-        counter++;
-        min=mid+1;
-      }
-      else max=mid+1;
       counter++;
-    }
+      int mid = (min +max)/2;
+      if (origin[mid]==number) return counter;
+      if (origin[mid]<number) { min=mid+1;
+      }
+      else max=mid-1;
+      }
     // write your code here
     return counter;
   }
@@ -55,5 +49,7 @@ public class BinarySearchApp {
     System.out.println(rnd);
     int count1 = find_conventional(unsorted, rnd);
     int count2 = find_binary(sorted, rnd);
+    System.out.println(count1);
+    System.out.println(count2);
   }
 }
